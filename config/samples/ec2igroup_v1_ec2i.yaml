@@ -1,0 +1,7 @@
+apiVersion: ec2igroup.ec2idomain/v1
+kind: EC2I
+metadata:
+  name: ec2i-sample
+spec:
+  # Add fields here
+  foo: bar

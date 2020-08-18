@@ -1,0 +1,7 @@
+domain: ec2idomain
+repo: ec2i
+resources:
+- group: ec2igroup
+  kind: EC2I
+  version: v1
+version: "2"

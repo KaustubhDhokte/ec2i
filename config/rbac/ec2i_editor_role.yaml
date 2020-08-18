@@ -1,0 +1,24 @@
+# permissions for end users to edit ec2is.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: ec2i-editor-role
+rules:
+- apiGroups:
+  - ec2igroup.ec2idomain
+  resources:
+  - ec2is
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ec2igroup.ec2idomain
+  resources:
+  - ec2is/status
+  verbs:
+  - get
