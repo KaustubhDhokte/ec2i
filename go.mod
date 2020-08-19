@@ -3,6 +3,8 @@ module ec2i
 go 1.13
 
 require (
+	github.com/aws/aws-sdk-go v1.34.6
+	github.com/awslabs/goformation/v4 v4.15.0
 	github.com/go-logr/logr v0.1.0
 	github.com/onsi/ginkgo v1.11.0
 	github.com/onsi/gomega v1.8.1

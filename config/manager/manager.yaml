@@ -22,7 +22,7 @@ spec:
       labels:
         control-plane: controller-manager
     spec:
-      serviceAccountName: ec2sa
+      serviceAccountName: ec2isa
       containers:
       - command:
         - /manager

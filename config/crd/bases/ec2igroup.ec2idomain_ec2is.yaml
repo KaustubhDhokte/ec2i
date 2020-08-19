@@ -1,0 +1,152 @@
+
+---
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.2.5
+  creationTimestamp: null
+  name: ec2is.ec2igroup.ec2idomain
+spec:
+  group: ec2igroup.ec2idomain
+  names:
+    kind: EC2I
+    listKind: EC2IList
+    plural: ec2is
+    singular: ec2i
+  scope: Namespaced
+  validation:
+    openAPIV3Schema:
+      description: EC2I is the Schema for the ec2is API
+      properties:
+        apiVersion:
+          description: 'APIVersion defines the versioned schema of this representation
+            of an object. Servers should convert recognized schemas to the latest
+            internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+          type: string
+        kind:
+          description: 'Kind is a string value representing the REST resource this
+            object represents. Servers may infer this from the endpoint the client
+            submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+          type: string
+        metadata:
+          type: object
+        spec:
+          description: EC2ISpec defines the desired state of EC2I
+          properties:
+            additionalInfo:
+              description: 'AdditionalInfo AWS CloudFormation Property Required: false
+                See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-additionalinfo'
+              type: string
+            affinity:
+              description: 'Affinity AWS CloudFormation Property Required: false See:
+                http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-affinity'
+              type: string
+            availabilityZone:
+              description: 'AvailabilityZone AWS CloudFormation Property Required:
+                false See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-availabilityzone'
+              type: string
+            disableApiTermination:
+              description: 'DisableApiTermination AWS CloudFormation Property Required:
+                false See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-disableapitermination'
+              type: boolean
+            ebsOptimized:
+              description: 'EbsOptimized AWS CloudFormation Property Required: false
+                See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-ebsoptimized'
+              type: boolean
+            hostId:
+              description: 'HostId AWS CloudFormation Property Required: false See:
+                http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hostid'
+              type: string
+            hostResourceGroupArn:
+              description: 'HostResourceGroupArn AWS CloudFormation Property Required:
+                false See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hostresourcegrouparn'
+              type: string
+            iamInstanceProfile:
+              description: 'IamInstanceProfile AWS CloudFormation Property Required:
+                false See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-iaminstanceprofile'
+              type: string
+            imageId:
+              description: 'ImageId AWS CloudFormation Property Required: false See:
+                http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-imageid'
+              type: string
+            instanceInitiatedShutdownBehavior:
+              description: 'InstanceInitiatedShutdownBehavior AWS CloudFormation Property
+                Required: false See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-instanceinitiatedshutdownbehavior'
+              type: string
+            instanceType:
+              description: 'InstanceType AWS CloudFormation Property Required: false
+                See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-instancetype'
+              type: string
+            ipv6AddressCount:
+              description: 'Ipv6AddressCount AWS CloudFormation Property Required:
+                false See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-ipv6addresscount'
+              type: integer
+            kernelId:
+              description: 'KernelId AWS CloudFormation Property Required: false See:
+                http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-kernelid'
+              type: string
+            keyName:
+              description: 'KeyName AWS CloudFormation Property Required: false See:
+                http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-keyname'
+              type: string
+            monitoring:
+              description: 'Monitoring AWS CloudFormation Property Required: false
+                See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-monitoring'
+              type: boolean
+            placementGroupName:
+              description: 'PlacementGroupName AWS CloudFormation Property Required:
+                false See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-placementgroupname'
+              type: string
+            privateIpAddress:
+              description: 'PrivateIpAddress AWS CloudFormation Property Required:
+                false See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-privateipaddress'
+              type: string
+            ramdiskId:
+              description: 'RamdiskId AWS CloudFormation Property Required: false
+                See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-ramdiskid'
+              type: string
+            securityGroupIds:
+              description: 'SecurityGroupIds AWS CloudFormation Property Required:
+                false See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-securitygroupids'
+              items:
+                type: string
+              type: array
+            securityGroups:
+              description: 'SecurityGroups AWS CloudFormation Property Required: false
+                See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-securitygroups'
+              items:
+                type: string
+              type: array
+            sourceDestCheck:
+              description: 'SourceDestCheck AWS CloudFormation Property Required:
+                false See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-sourcedestcheck'
+              type: boolean
+            subnetId:
+              description: 'SubnetId AWS CloudFormation Property Required: false See:
+                http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-subnetid'
+              type: string
+            tenancy:
+              description: 'Tenancy AWS CloudFormation Property Required: false See:
+                http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-tenancy'
+              type: string
+            userData:
+              description: 'UserData AWS CloudFormation Property Required: false See:
+                http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-userdata'
+              type: string
+          type: object
+        status:
+          description: EC2IStatus defines the observed state of EC2I
+          type: object
+      type: object
+  version: v1
+  versions:
+  - name: v1
+    served: true
+    storage: true
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

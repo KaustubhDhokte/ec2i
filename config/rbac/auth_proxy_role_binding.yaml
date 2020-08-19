@@ -8,5 +8,5 @@ roleRef:
   name: proxy-role
 subjects:
 - kind: ServiceAccount
-  name: ec2i-ec2sa
+  name: ec2isa
   namespace: ec2i-system

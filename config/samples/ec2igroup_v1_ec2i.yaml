@@ -1,7 +1,95 @@
 apiVersion: ec2igroup.ec2idomain/v1
 kind: EC2I
 metadata:
-  name: ec2i-sample
+  name: ec2i-sampletwo
 spec:
   # Add fields here
-  foo: bar
+  imageId: "ami-02b0c55eeae6d5096"
+  instanceType: "t2.micro"
+  instanceName: "FourthKubeInstance"
+
+  affinity: "abcd"
+  availabilityZone: "us-east-2"
+  BlockDeviceMappings:
+    - DeviceName: "dn"
+      Ebs:
+        deleteOnTermination: false
+        encrypted: false
+        iops: 3
+        kmsKeyId: "kmskeyid"
+        snapshotId: "snapshotid"
+        volumeSize: 4
+        volumeType: "volumeType"
+      NoDevice:
+      VirtualName: "virtualname"
+  CpuOptions:
+    coreCount: 2
+    threadsPerCore: 2
+  CreditSpecification:
+    cpuCredits: "sght"
+  disableApiTernmination: false
+  ebsOptimized: false
+  ElasticGroupSpecifications:
+    - type: "pqrs"
+  ElasticInferenceAccelerators:
+    - count: 2
+      type: "xyz"
+  HibernationOptions:
+    configured: True
+  hostId: "pqrs"
+  hostResourceGroupArn: "sdsd"
+  iamInstanceProfile: "kahitari"
+  imageId: "ddfdgdg"
+  instanceInitiatedShutdownBehavior: "frty"
+  instanceType: "t2.medium"
+  ipv6AddressCount: 6
+  Ipv6Addresses:
+    - ipv6Address: "12:32:43:54:65:87"
+  kernelId: "rety"
+  keyName: "poyuy"
+  launchTemplate:
+    launchTemplateId: "dfdfdg"
+    launchTemplateName: "dfdfd"
+    version: "dffgh"
+  licenseSpecifications:
+    - licenseConfigurationArn: "ls:aws:rt:er:tr:tf"
+  monitoring: false
+  NetworkInterfaces:
+    - associatePublicIpAddress: false
+      deleteOnTermination: false
+      description: "sdfdfdf"
+      deviceIndex: "fdfdf"
+      groupSet: 
+        - "dfdfdf"
+      ipv6AddressCount: 4
+      ipv6Addresses: 
+        - ipv6Address: "12:32:43:54:65:87"
+      networkInterfaceId: "vcvfvfvffb"
+      privateIpAddress: "rrtrttrty"
+      privateIpAddresses: 
+      - primary: false
+        privateIpAddress: "192.168.4.5"
+      secondaryPrivateIpAddressCount: 2
+      subnetId: "192.168.4.5/24"
+  placementGroupName: "PGN"
+  privateIpAddress: "192.168.10.1"
+  ramdiskId: "rt65fgbfb"
+  SecurityGroupIds:
+    - "fdfddf"
+  SecurityGroups:
+    - "bnfhgt"
+  SourceDestCheck: false
+  SsmAssociations:
+    - associationParameters:
+        key: "key"
+        value: "value"
+      documentName: "docname"
+  subnetId: "subnetid"
+  tags:
+    - key: "key"
+      value: "value"
+  tenancy: "tenancy"
+  userData: "udata"
+  volumes:
+    - device: "device"
+      volumeId: "VID"
