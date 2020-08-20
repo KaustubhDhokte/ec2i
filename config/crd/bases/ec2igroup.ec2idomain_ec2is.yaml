@@ -34,6 +34,10 @@ spec:
         spec:
           description: EC2ISpec defines the desired state of EC2I
           properties:
+            InstanceType:
+              description: 'InstanceType AWS CloudFormation Property Required: false
+                See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-instancetype'
+              type: string
             additionalInfo:
               description: 'AdditionalInfo AWS CloudFormation Property Required: false
                 See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-additionalinfo'
@@ -74,10 +78,6 @@ spec:
               description: 'InstanceInitiatedShutdownBehavior AWS CloudFormation Property
                 Required: false See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-instanceinitiatedshutdownbehavior'
               type: string
-            instanceType:
-              description: 'InstanceType AWS CloudFormation Property Required: false
-                See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-instancetype'
-              type: string
             ipv6AddressCount:
               description: 'Ipv6AddressCount AWS CloudFormation Property Required:
                 false See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-ipv6addresscount'
@@ -106,6 +106,8 @@ spec:
               description: 'RamdiskId AWS CloudFormation Property Required: false
                 See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-ramdiskid'
               type: string
+            region:
+              type: string
             securityGroupIds:
               description: 'SecurityGroupIds AWS CloudFormation Property Required:
                 false See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-securitygroupids'
@@ -122,6 +124,8 @@ spec:
               description: 'SourceDestCheck AWS CloudFormation Property Required:
                 false See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-sourcedestcheck'
               type: boolean
+            stackName:
+              type: string
             subnetId:
               description: 'SubnetId AWS CloudFormation Property Required: false See:
                 http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-subnetid'

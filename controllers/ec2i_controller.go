@@ -18,6 +18,7 @@ package controllers
 
 import (
 	"context"
+	//"encoding/json"
 	"fmt"
 
 	"github.com/go-logr/logr"
@@ -26,9 +27,15 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
 	ec2igroupv1 "ec2i/api/v1"
-	// "github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws"
 	// "github.com/aws/aws-sdk-go/aws/session"
 	// "github.com/aws/aws-sdk-go/service/ec2"
+
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/cloudformation"
+	//"github.com/aws/aws-sdk-go/service/cloudformation/cloudformationiface"
+	cf "github.com/awslabs/goformation/v4/cloudformation"
+	ectwo "github.com/awslabs/goformation/v4/cloudformation/ec2"
 )
 
 // EC2IReconciler reconciles a EC2I object
@@ -40,7 +47,6 @@ type EC2IReconciler struct {
 
 // +kubebuilder:rbac:groups=ec2igroup.ec2idomain,resources=ec2is,verbs=get;list;watch;create;update;patch;delete
 // +kubebuilder:rbac:groups=ec2igroup.ec2idomain,resources=ec2is/status,verbs=get;update;patch
-
 func (r *EC2IReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 	ctx := context.Background()
 	_ = r.Log.WithValues("ec2i", req.NamespacedName)
@@ -59,10 +65,54 @@ func (r *EC2IReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 		//log.Error(err, "unable to fetch EC2Instance")
 		fmt.Println("unable to fetch EC2Instance")
 	} else {
-		// fmt.Println(ec2I.Spec.ImageId)
-		// fmt.Println(ec2I.Spec.InstanceType)
-		fmt.Println("Doing nothing")
-		fmt.Println(ec2I.Spec.Affinity)
+
+		stackName := ec2I.Spec.StackName
+
+		template := cf.NewTemplate()
+
+		template.Resources["EC2Instance"] = &ectwo.Instance{
+			ImageId:      ec2I.Spec.ImageId,
+			InstanceType: ec2I.Spec.InstanceType,
+		}
+
+		j, err := template.JSON()
+		if err != nil {
+			fmt.Printf("Failed to generate JSON: %s\n", err)
+		} else {
+			fmt.Printf("%s\n", string(j))
+		}
+
+		templateBody := string(j)
+		fmt.Println(templateBody)
+
+		sess := session.Must(session.NewSessionWithOptions(session.Options{
+			SharedConfigState: session.SharedConfigEnable,
+			Config: aws.Config{
+				Region: aws.String(ec2I.Spec.Region),
+			},
+		}))
+
+		svc := cloudformation.New(sess)
+
+		_, errr := svc.CreateStack(&cloudformation.CreateStackInput{
+			TemplateBody: &templateBody,
+			StackName:    &stackName,
+		})
+
+		if errr != nil {
+			fmt.Println("Got an error creating stack " + stackName)
+			fmt.Println(errr)
+		}
+
+		err = svc.WaitUntilStackCreateComplete(&cloudformation.DescribeStacksInput{
+			StackName: &stackName,
+		})
+		if err != nil {
+			fmt.Println("Got an error waiting for stack to be created")
+			fmt.Println(err)
+		} else {
+			fmt.Println("Created stack " + stackName)
+		}
 	}
 
 	// runR, err := svc.RunInstances(&ec2.RunInstancesInput{

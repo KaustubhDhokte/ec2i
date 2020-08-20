@@ -1,13 +1,13 @@
 apiVersion: ec2igroup.ec2idomain/v1
 kind: EC2I
 metadata:
-  name: ec2i-sampletwo
+  name: ec2inewsampletwo
 spec:
   # Add fields here
-  imageId: "ami-02b0c55eeae6d5096"
   instanceType: "t2.micro"
   instanceName: "FourthKubeInstance"
-
+  region: "us-east-2"
+  stackName: "ectwostacksix"
   affinity: "abcd"
   availabilityZone: "us-east-2"
   BlockDeviceMappings:
@@ -39,9 +39,9 @@ spec:
   hostId: "pqrs"
   hostResourceGroupArn: "sdsd"
   iamInstanceProfile: "kahitari"
-  imageId: "ddfdgdg"
+  imageId: "ami-02b0c55eeae6d5096"
   instanceInitiatedShutdownBehavior: "frty"
-  instanceType: "t2.medium"
+  InstanceType: "t2.micro"
   ipv6AddressCount: 6
   Ipv6Addresses:
     - ipv6Address: "12:32:43:54:65:87"

@@ -37,6 +37,7 @@ type EC2ISpec struct {
 	// InstanceName string `json:"instanceName,omitempty"`
 	// InstanceId   string `json:"instanceId,omitempty"`
 
+	StackName string `json:"stackName,omitempty"`
 	// AdditionalInfo AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-additionalinfo
@@ -51,6 +52,8 @@ type EC2ISpec struct {
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-availabilityzone
 	AvailabilityZone string `json:"availabilityZone,omitempty"`
+
+	Region string `json:"region,omitempty"`
 
 	// BlockDeviceMappings AWS CloudFormation Property
 	// Required: false
@@ -120,7 +123,7 @@ type EC2ISpec struct {
 	// InstanceType AWS CloudFormation Property
 	// Required: false
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-instancetype
-	InstanceType string `json:"instanceType,omitempty"`
+	InstanceType string `json:"InstanceType,omitempty"`
 
 	// Ipv6AddressCount AWS CloudFormation Property
 	// Required: false

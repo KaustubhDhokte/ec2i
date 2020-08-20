@@ -5,4 +5,4 @@ kind: Kustomization
 images:
 - name: controller
   newName: docker.io/kaustud/ec2i
-  newTag: ec2ilatestdonthing
+  newTag: ec2icouldformationregion
